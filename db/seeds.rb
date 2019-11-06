@@ -1,12 +1,13 @@
 # frozen_string_literal: true
-
+OrderItem.destroy_all
+Order.destroy_all
+ProductVariant.destroy_all
 ProductCategory.destroy_all
 Category.destroy_all
 Product.destroy_all
 PRODUCTS_COUNT = 100
 
 MAX_CATEGORIES = 3
-
 MAX_VARIANTS = 4
 VARIANTS_WEIGHT = 0.53
 
@@ -25,7 +26,9 @@ PRODUCTS_COUNT.times do
 
   product = Product.new(
     title: title,
-    price: Faker::Commerce.price
+    description: Faker::Quote.yoda,
+    price: Faker::Commerce.price,
+    stock_quantity: rand(1..50).to_i
   )
 
   num_categories = 1 + rand(MAX_CATEGORIES)
@@ -42,4 +45,8 @@ PRODUCTS_COUNT.times do
   end
 
   product.save!
+
 end
+
+puts "Created #{Category.count} Categories."
+puts "Created #{Product.count} Products."
