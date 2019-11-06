@@ -1,5 +1,8 @@
 # frozen_string_literal: true
 
+ProductCategory.destroy_all
+Category.destroy_all
+Product.destroy_all
 PRODUCTS_COUNT = 100
 
 MAX_CATEGORIES = 3
@@ -28,15 +31,15 @@ PRODUCTS_COUNT.times do
   num_categories = 1 + rand(MAX_CATEGORIES)
   product.categories = CATEGORIES.sample(num_categories)
 
-  # if rand > VARIANTS_WEIGHT
-  #   num_variants = 1 + rand(MAX_VARIANTS)
-  #   num_variants.times do
-  #     product.variants.build(
-  #       title: rand > VARIANTS_WEIGHT ? Faker::Commerce.color : Faker::Commerce.material,
-  #       price: Faker::Commerce.price
-  #     )
-  #   end
-  # end
+  if rand > VARIANTS_WEIGHT
+    num_variants = 1 + rand(MAX_VARIANTS)
+    num_variants.times do
+      product.variants.build(
+        title: rand > VARIANTS_WEIGHT ? Faker::Commerce.color : Faker::Commerce.material,
+        price: Faker::Commerce.price
+      )
+    end
+  end
 
   product.save!
 end
