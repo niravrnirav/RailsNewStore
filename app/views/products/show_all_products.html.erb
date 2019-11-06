@@ -3,3 +3,6 @@
 <div class="columns is-multiline">
   <%= render partial: "product", collection: @all_products %>
 </div>
+<div class="d-inline-block">
+  <%= paginate @products, window: 2 %>
+</div>
