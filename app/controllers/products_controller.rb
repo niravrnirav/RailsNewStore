@@ -7,7 +7,8 @@ class ProductsController < ApplicationController
   end
 
   def show_all_products
-    @all_products = Product.all.order(:title).page params[:page]
+    @query = params[:query]
+    @all_products = Product.where('lower(title) LIKE ?', "%#{@query.downcase}%").order(:title).page params[:page]
   end
 
   def show

@@ -19,7 +19,7 @@
         <%= link_to pluralize(current_cart.items_count, 'item'), cart_path %>
       </p>
 
-      <%= form_with(url: products_index_path, method: "get", local: true) do %>
+      <%= form_with(url: products_show_all_products_path, method: "get", local: true) do %>
         <%= label_tag(:query, "Search for:") %>
         <%= text_field_tag(:query) %>
         <%= submit_tag("Search") %>
