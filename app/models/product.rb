@@ -6,4 +6,5 @@ class Product < ApplicationRecord
   has_many :categories, through: :product_categories
   has_many :variants, class_name: 'ProductVariant'
   paginates_per 10
+  has_one_attached :image
 end

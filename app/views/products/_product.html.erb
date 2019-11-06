@@ -4,6 +4,20 @@
       <p class="title is-4">
         <%= link_to product.title, product %>
       </p>
+      <% if product.image.present? %>
+        <div class="card-image">
+          <figure class="image is-4by3">
+            <%= image_tag product.image %>
+          </figure>
+        </div>
+      <% else %>
+      <div class="card-image">
+          <figure class="image is-4by3">
+            <%= image_tag "https://bulma.io/images/placeholders/1280x960.png" %>
+          </figure>
+        </div>
+
+      <% end %>
       <div class="content">
           <p><strong>Description</strong><%=product.description%></p>
           <p><strong>Price</strong><%=product.price%></p>

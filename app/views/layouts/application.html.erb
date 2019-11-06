@@ -20,10 +20,13 @@
       </p>
 
       <%= form_with(url: products_show_all_products_path, method: "get", local: true) do %>
+        <%= select_tag "category_id", options_from_collection_for_select(Category.all, "id", "title", '179'), html: {selected: true} %>
         <%= label_tag(:query, "Search for:") %>
         <%= text_field_tag(:query) %>
         <%= submit_tag("Search") %>
       <% end %>
+
+
 
     </section>
     <section class="section">
