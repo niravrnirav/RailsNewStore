@@ -7,7 +7,7 @@ class ProductsController < ApplicationController
   end
 
   def show_all_products
-    @all_products = Product.all.order(:title)
+    @all_products = Product.all.order(:title).page params[:page]
   end
 
   def show
