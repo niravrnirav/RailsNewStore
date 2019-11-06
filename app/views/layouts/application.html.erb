@@ -4,16 +4,30 @@
     <title>Store</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.8.0/css/bulma.min.css">
   </head>
 
   <body>
-  <p>
-    <%= link_to "Home", root_path %>
-    <%= link_to pluralize(current_cart.items_count, 'item'), cart_path %>
-  </p>
-    <%= yield %>
+
+    <section class="section">
+      <p>
+        <%= link_to "Home", root_path %> -
+        <%= link_to "All Products", products_show_all_products_path %> -
+        <%= link_to pluralize(current_cart.items_count, 'item'), cart_path %>
+      </p>
+
+      <%= form_with(url: products_index_path, method: "get", local: true) do %>
+        <%= label_tag(:query, "Search for:") %>
+        <%= text_field_tag(:query) %>
+        <%= submit_tag("Search") %>
+      <% end %>
+
+    </section>
+    <section class="section">
+      <%= yield %>
+    </section>
   </body>
 </html>
