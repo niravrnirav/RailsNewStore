@@ -27,6 +27,7 @@ gem 'jbuilder', '~> 2.7'
 gem 'activeadmin'
 gem 'devise'
 gem 'kaminari'
+gem "mini_magick"
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.2', require: false
 #gem 'faker', :git => 'https://github.com/faker-ruby/faker.git', :branch => 'master'

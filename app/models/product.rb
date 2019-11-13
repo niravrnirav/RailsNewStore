@@ -7,4 +7,8 @@ class Product < ApplicationRecord
   has_many :variants, class_name: 'ProductVariant'
   paginates_per 10
   has_one_attached :image
+
+  def thumbnail
+    return self.image.variant(resize: '300x300').processed
+  end
 end
