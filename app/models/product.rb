@@ -9,6 +9,6 @@ class Product < ApplicationRecord
   has_one_attached :image
 
   def thumbnail
-    return self.image.variant(resize: '300x300').processed
+    return self.image.variant(resize: '200x200').processed
   end
 end
