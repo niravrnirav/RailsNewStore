@@ -8,6 +8,18 @@
                 required: true,
                 input_html: { autocomplete: "text" }%>
     <%= f.input :email, required: true, autofocus: true %>
+    <%= f.input :address,
+                required: true,
+                input_html: { autocomplete: "text" }%>
+    <%= f.input :postal_code,
+                required: true,
+                input_html: { autocomplete: "text" }%>
+    <%= f.input :city,
+                required: true,
+                input_html: { autocomplete: "text" }%>
+    <%= f.input :province,
+                required: true,
+                input_html: { autocomplete: "text" }%>
 
     <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
       <p>Currently waiting confirmation for: <%= resource.unconfirmed_email %></p>
