@@ -7,13 +7,11 @@ class ProductsController < ApplicationController
   end
 
   def show_all_products
-    @query = params[:query]
-    if @query  != nil
-      @query.downcase
-    end
+    @query = params[:query].downcase
+
     @all_products = Product.where('lower(title) LIKE ?', "%#{@query}%").order(:title).page params[:page]
 
-    if params[:category_id] != nil && params[:category_id] != '89'
+    if !params[:category_id].nil? && params[:category_id] != '89'
       category = Category.find(params[:category_id])
       @all_products = category.products.where('lower(title) LIKE ?', "%#{@query}%").order(:title).page params[:page]
     else
