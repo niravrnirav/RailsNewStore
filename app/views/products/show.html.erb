@@ -1,6 +1,19 @@
 <h1>Products#show</h1>
 <p>Find me in app/views/products/show.html.erb</p>
+<section class="section">
+      <p>
+        <%= link_to "Home", root_path %> -
+        <%= link_to "All Products", products_show_all_products_path %> -
+        <%= link_to pluralize(current_cart.items_count, 'item'), cart_path %>
+      </p>
 
+      <%= form_with(url: products_show_all_products_path, method: "get", local: true) do %>
+        <%= select_tag "category_id", options_from_collection_for_select(Category.all, "id", "title", '179'), html: {selected: true} %>
+        <%= label_tag(:query, "Search for:") %>
+        <%= text_field_tag(:query) %>
+        <%= submit_tag("Search") %>
+      <% end %>
+    </section>
 <%= render partial: 'product',
             object: @product,
             locals: { name_is_link: false } %>

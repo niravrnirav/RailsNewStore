@@ -1,6 +1,19 @@
 <h1 class="title is-1">Products#show_all_products</h1>
 <p>Find me in app/views/products/show_all_products.html.erb</p>
+<section class="section">
+      <p>
+        <%= link_to "Home", root_path %> -
+        <%= link_to "All Products", products_show_all_products_path %> -
+        <%= link_to pluralize(current_cart.items_count, 'item'), cart_path %>
+      </p>
 
+      <%= form_with(url: products_show_all_products_path, method: "get", local: true) do %>
+        <%= select_tag "category_id", options_from_collection_for_select(Category.all, "id", "title", '179'), html: {selected: true} %>
+        <%= label_tag(:query, "Search for:") %>
+        <%= text_field_tag(:query) %>
+        <%= submit_tag("Search") %>
+      <% end %>
+    </section>
 <h1 class="title is-1">New Products</h1>
 <div class="columns is-multiline">
   <%= render partial: "product", collection: @new_prod %>
