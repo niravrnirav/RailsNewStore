@@ -6,9 +6,11 @@ class Product < ApplicationRecord
   has_many :categories, through: :product_categories
   has_many :variants, class_name: 'ProductVariant'
   paginates_per 10
-  has_one_attached :image
+  #has_one_attached :image
 
-  def thumbnail
-    return self.image.variant(resize: '200x200').processed
-  end
+  # def thumbnail
+  #   image.variant(resize: '200x200').processed
+  # end
+
+  mount_uploader :image, AvatarUploader
 end
