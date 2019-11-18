@@ -1,5 +1,4 @@
 class OrdersController < ApplicationController
-
   def new
     @order = current_cart.order
   end
@@ -20,5 +19,4 @@ class OrdersController < ApplicationController
   def order_params
     params.require(:order).permit(:first_name, :last_name)
   end
-
 end
