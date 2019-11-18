@@ -8,14 +8,14 @@ ActiveAdmin.register Product do
   #
   permit_params :title, :description, :price, :stock_quantity, :image
 
-  form do |f|
-    f.semantic_errors
-    f.inputs
-    f.inputs do
-      f.input :image, as: :file
-    end
-    f.actions
-  end
+  # form do |f|
+  #   f.semantic_errors
+  #   f.inputs
+  #   f.inputs do
+  #     f.input :image, as: :file
+  #   end
+  #   f.actions
+  # end
 
   #
   # or
