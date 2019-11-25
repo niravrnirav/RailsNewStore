@@ -5,11 +5,10 @@
 
       <%= f.input :name,
                   required: true,
-                  label_html: { class: 'label' },
-                  input_html: { autocomplete: "text" },
-                  input_html: { class: "input" }%>
+                  autofocus: true,
+                  input_html: { autocomplete: "text" }  %>
 
-      <%= f.input :email, required: true, autofocus: true %>
+      <%= f.input :email, required: true %>
       <%= f.input :address,
                   required: true,
                   input_html: { autocomplete: "text" }%>

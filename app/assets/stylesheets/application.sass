@@ -18,7 +18,7 @@
 /* ----- SimpleForm Styles ----- */
 
 .simple_form
-  $leftmargin: 120px
+  $leftmargin: 50px
   div.input
     margin-bottom: 10px
     clear: both
@@ -43,31 +43,21 @@
     font-style: italic
 
 div.boolean, .simple_form input[type='submit']
-  margin-left: 0px
-
-div.boolean label, label.collection_radio_buttons
-  float: none
-  margin: 0
-
-label.collection_radio_buttons
-  margin-right: 10px
-  vertical-align: -2px
-  margin-left: 2px
+  margin-left: 0%
 
 .field_with_errors
   background-color: #ff3333
 
 input.radio
-  margin-right: 5px
-  vertical-align: -3px
-
-input.check_boxes
   margin-left: 3px
   vertical-align: -3px
 
+input.check_boxes
+  @extend .radio
+
 label.collection_check_boxes
   float: none
-  margin: 0
+  margin: 0%
   vertical-align: -2px
 
 .btn
