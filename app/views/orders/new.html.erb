@@ -10,7 +10,11 @@
     <p>Address: <%=current_user.address%></p>
     <p>Postal Code: <%=current_user.postal_code%></p>
     <p>City: <%=current_user.city%></p>
-    <p>Province: <%=current_user.province%></p>
+    <p>Province: <%=current_user.province.name%></p>
+    </br>
+    <p>SubTotal: <%= number_to_currency current_cart.sub_total %></p>
+    <p>Tax: <%= number_to_currency current_cart.sub_total * current_user.province.tax%></p>
+    <p>Total = <%= number_to_currency current_cart.sub_total + (current_cart.sub_total * current_user.province.tax) %></p>
     <%= f.submit 'Checkout'%>
   <% end %>
 <% else %>
