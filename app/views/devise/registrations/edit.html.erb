@@ -18,9 +18,10 @@
       <%= f.input :city,
                   required: true,
                   input_html: { autocomplete: "text" }%>
-      <%= f.input :province,
+      <%= f.association :province,
                   required: true,
-                  input_html: { autocomplete: "text" }%>
+                  input_html: { autocomplete: "text" },
+                  class: "is-small"%>
 
       <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
         <p>Currently waiting confirmation for: <%= resource.unconfirmed_email %></p>
