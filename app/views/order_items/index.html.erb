@@ -14,7 +14,7 @@
     <% @items.each do |item| %>
       <tr>
         <td><%= item.product.title %></td>
-        <td><%= number_to_currency item.price %></td>
+        <td><%= number_to_currency (item.price / (1 + current_user.province.tax)) %></td>
         <td>
           <%= form_for item do %>
             <%= hidden_field_tag :product_id, item.product_id %>
@@ -34,7 +34,7 @@
   <tfoot>
     <tr>
       <td colspan="4" align="right">
-        Subtotal: <%= number_to_currency current_cart.sub_total %>
+        Subtotal: <%= number_to_currency (current_cart.sub_total / (1 + current_user.province.tax)) %>
       <td>
     </tr>
   </tfoot>

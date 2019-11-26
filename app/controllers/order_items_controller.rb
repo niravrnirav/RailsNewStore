@@ -8,7 +8,8 @@ class OrderItemsController < ApplicationController
   def create
     current_cart.add_item(
       product_id: params[:product_id],
-      quantity: params[:quantity]
+      quantity: params[:quantity],
+      tax: current_user.province.tax
     )
 
     redirect_to cart_path
@@ -17,7 +18,8 @@ class OrderItemsController < ApplicationController
   def update
     current_cart.update_item(
       product_id: params[:product_id],
-      quantity: params[:quantity]
+      quantity: params[:quantity],
+      tax: current_user.province.tax
     )
     redirect_to cart_path
   end

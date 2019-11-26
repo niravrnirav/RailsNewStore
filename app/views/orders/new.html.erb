@@ -12,9 +12,9 @@
     <p>City: <%=current_user.city%></p>
     <p>Province: <%=current_user.province.name%></p>
     </br>
-    <p>SubTotal: <%= number_to_currency current_cart.sub_total %></p>
-    <p>Tax: <%= number_to_currency current_cart.sub_total * current_user.province.tax%></p>
-    <p>Total = <%= number_to_currency current_cart.sub_total + (current_cart.sub_total * current_user.province.tax) %></p>
+    <p>SubTotal: <%= number_to_currency current_cart.sub_total  / (1 + current_user.province.tax) %></p>
+    <p>Tax: <%= number_to_currency current_cart.sub_total - (current_cart.sub_total  / (1 + current_user.province.tax))%></p>
+    <p>Total = <%= number_to_currency current_cart.sub_total %></p>
     <%= f.submit 'Checkout'%>
   <% end %>
 <% else %>
