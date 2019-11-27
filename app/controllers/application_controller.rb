@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
 
@@ -13,7 +15,7 @@ class ApplicationController < ActionController::Base
   def cart_token
     return @cart_token unless @cart_token.nil?
 
-    #if new session, assign new hash
+    # if new session, assign new hash
     session[:cart_token] ||= SecureRandom.hex(8)
     @cart_token = session[:cart_token]
   end

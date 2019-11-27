@@ -8,7 +8,8 @@ class ShoppingCart
   end
 
   def order
-    # if order is assigned, it will return that instance. if it is null it will create a new order
+    # if order is assigned, it will return that instance.
+    # if it is null it will create a new order
     @order ||= Order.find_or_create_by(token: @token, status: 'cart') do |order|
       order.sub_total = 0
     end

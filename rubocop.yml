@@ -1,0 +1,34 @@
+AllCops:
+  Exclude:
+    - db/**/*
+    - config/**/*
+    - script/**/*
+    - bin/**/*
+    - test/**/*
+    - app/admin/**/*
+    - app/channels/**/*
+    - app/jobs/**/*
+    - node_modules/**/*
+    - Gemfile
+    - Rakefile
+    - config.ru
+    - app/models/shopping_cart.rb
+    - app/controllers/registrations_controller.rb
+
+Encoding:
+  Enabled: false
+
+Documentation:
+  Enabled: false
+
+Metrics/LineLength:
+  Max: 99
+
+Metrics/MethodLength:
+  Max: 20
+
+Metrics/AbcSize:
+  Max: 40
+
+Layout/EndOfLine:
+  EnforcedStyle: lf
